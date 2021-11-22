@@ -1,0 +1,95 @@
+<div class="collection-collapse-block" [class.open]="collapse">
+    <h3 class="collapse-block-title" (click)="collapse = !collapse">colors</h3>
+    <div class="collection-collapse-block-content">
+      <div class="collection-brand-filter color-filter">
+        <!-- <div class="custom-control custom-checkbox collection-filter-checkbox"
+          *ngFor="let color of filterbycolor">
+          <input 
+            type="checkbox" 
+            [value]="color"
+            [checked]="checked(color)"
+            [id]="color"
+            (change)="appliedFilter($event)"
+            class="custom-control-input" />
+          <span [class]="color" [ngStyle]="{'background-color': color}"></span>
+          <label class="custom-control-label" for="{{ color }}">{{ color }}</label>
+        </div> -->
+        <div class="custom-control custom-checkbox collection-filter-checkbox">
+          <span  [ngStyle]="{'background-color': 'red'}"></span>
+          <label class=""(click)='appliedFilter("red")' > Red</label>
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox">
+          <span  [ngStyle]="{'background-color': 'black'}"></span>
+          <label class="" (click)='appliedFilter("black")' > Black</label>
+        </div>
+          <div class="custom-control custom-checkbox collection-filter-checkbox">
+          <span  [ngStyle]="{'background-color': 'blue'}"></span>
+          <label class=""(click)='appliedFilter("blue")' >Blue </label>
+        </div>
+          <div class="custom-control custom-checkbox collection-filter-checkbox">
+          <span  [ngStyle]="{'background-color': 'brown'}"></span>
+          <label class="" (click)='appliedFilter("brown")'> Brown </label>
+        </div>
+          <div class="custom-control custom-checkbox collection-filter-checkbox">
+          <span [ngStyle]="{'background-color': 'gold'}"></span>
+          <label class=""(click)='appliedFilter("gold")' > Gold</label>
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox">
+          <span  [ngStyle]="{'background-color': 'green'}"></span>
+          <label class=""(click)='appliedFilter("green")' > Green</label>
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <span  [ngStyle]="{'background-color': 'beige'}"> </span>
+          <label (click)='appliedFilter("beige")' class="" >Beige</label> 
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <span  [ngStyle]="{'background-color': 'grey'}"> </span>
+          <label (click)='appliedFilter("grey")' class="" >Grey</label> 
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <span  [ngStyle]="{'background-color': 'violet'}"> </span>
+          <label (click)='appliedFilter("lilac")' class="" >Lilac</label> 
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <span style="background-image: url(assets/color/colour-multi-coloured.webp);"> </span>
+          <label (click)='appliedFilter("multi-coloured")' class="" >Multi-Coloured</label> 
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <span  [ngStyle]="{'background-color': 'navy'}"> </span>
+          <label (click)='appliedFilter("navy")' class="" >Navy</label> 
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <span  [ngStyle]="{'background-color': 'orange'}"> </span>
+          <label (click)='appliedFilter("orange")' class="" >Orange</label> 
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <span  [ngStyle]="{'background-color': 'pink'}"> </span>
+          <label (click)='appliedFilter("pink")' class="" >Pink</label> 
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <span  [ngStyle]="{'background-color': 'purple'}"> </span>
+          <label (click)='appliedFilter("purple")' class="" >Purple</label> 
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <span  [ngStyle]="{'background-color': 'silver'}"> </span>
+          <label (click)='appliedFilter("silver")' class="" >Silver</label> 
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <span  [ngStyle]="{'background-color': 'turquoise'}"> </span>
+          <label (click)='appliedFilter("turquoise")' class="" >Turquoise</label> 
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <span  [ngStyle]="{'background-color': 'white'}"> </span>
+          <label (click)='appliedFilter("white")' class="" >White</label> 
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <span style="background-color: rgb(61, 0, 0);" > </span>
+          <label (click)='appliedFilter("wine")' class="" >Wine</label> 
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <span  [ngStyle]="{'background-color': 'yellow'}"> </span>
+          <label (click)='appliedFilter("yellow")' class="" >Yellow</label> 
+        </div>
+      </div>
+    </div>
+</div>

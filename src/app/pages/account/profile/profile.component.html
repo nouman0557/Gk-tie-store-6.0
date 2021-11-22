@@ -1,0 +1,31 @@
+<app-breadcrumb [title]="'Profile'" [breadcrumb]="'Profile'"></app-breadcrumb>
+<!-- personal deatail section start -->
+<section class="contact-page register-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>PERSONAL DETAIL</h3>
+                <form class="theme-form">
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <label for="name">First Name</label>
+                            <h6>{{userProfile?.fld_Fname}}</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email">Last Name</label>
+                            <h6>{{userProfile?.fld_Lname}}</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="review">Phone number</label>
+                            <h6>{{userProfile?.fld_Phone}}</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email">Email</label>
+                            <h6>{{userProfile?.fld_Email}}</h6>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

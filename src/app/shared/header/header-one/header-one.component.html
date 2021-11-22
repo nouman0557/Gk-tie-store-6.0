@@ -1,0 +1,70 @@
+<header class="sticky" >
+
+    <!-- [ngClass]="class" [class.fixed]="stick && sticky" -->
+    <div class="mobile-fix-option"></div>
+    <div class="top-header" *ngIf="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="header-contact">
+                        <ul>
+                            <li>WELCOME TO GK Direct</li>
+                            <!-- <li><i class="fa fa-phone" aria-hidden="true"></i>Call Us: 123 - 456 - 7890</li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-right">
+                    <ul class="header-dropdown">
+                        <li class="compare">
+                            <a><i aria-hidden="true"></i>{{username}}</a>
+                        </li>
+                        <li class="mobile-wishlist">
+                            <a [routerLink]="['/shop/wishlist']"><i class="fa fa-heart" aria-hidden="true"></i>Wishlist</a>
+                        </li>
+                        <li class="onhover-dropdown mobile-account">
+                            <i class="fa fa-user" aria-hidden="true"></i> My Account
+                            <ul class="onhover-show-div">
+                                <li *ngIf='!login'> <a [routerLink]="['/pages/login']" data-lng="en">Login</a>
+                                </li>
+                                <li *ngIf='!login'> <a [routerLink]="['/pages/register']" data-lng="en">Register</a>
+                                </li>
+                                <li *ngIf='login'><a  [routerLink]="['/pages/profile']" data-lng="es">My Profile </a>
+                                </li>
+                                <li *ngIf='login'><a  [routerLink]="['/pages/orderHistory']" data-lng="es">Order History </a>
+                                </li>
+                                <li *ngIf='login'><a  [routerLink]="['/pages/forget/password']" data-lng="es">Change Password</a>
+                                <li *ngIf='login'><a (click)='logout()' data-lng="es">Logout</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" class="margin">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="main-menu">
+                    <div class="menu-left">
+                        <!-- <app-left-menu></app-left-menu> -->
+                        <div class="brand-logo class-left">
+                            <a routerLink="/home/fashion" id="headerlogo">
+                                <img [src]="themeLogo" class="img-fluid"
+                                     alt="logo" width="75" height="70">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="menu-right pull-right">
+                        <div>
+                            <app-menu></app-menu>
+                        </div>
+                        <div>
+                            <app-settings></app-settings>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

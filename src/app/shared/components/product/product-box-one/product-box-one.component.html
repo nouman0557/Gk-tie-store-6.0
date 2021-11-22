@@ -1,0 +1,79 @@
+<div *ngIf="!loader">
+  <div class="img-wrapper">
+    <div class="lable-block">
+      <span class="lable3" >3 for £30 </span>
+      <!-- <span class="lable4" *ngIf="product.sale">on sale</span> -->
+    </div>
+    <div class="front">
+      <a [routerLink]="['/shop/product/left/sidebar/', product.id]">
+        <img 
+          [defaultImage]="ImageSrc ? ImageSrc : 'assets/images/product/placeholder.jpg'" 
+          [lazyLoad]="ImageSrc ? ImageSrc : product.images[0].src" 
+          class="img-fluid lazy-loading" 
+          alt="{{ product.images[0].alt }}" />
+      </a>
+    </div>
+    <div class="back" *ngIf="onHowerChangeImage">
+      <a [routerLink]="['/shop/product/left/sidebar/', product.id]">
+        <img [src]="ImageSrc ? ImageSrc : product.images[1].src" class="img-fluid lazy-loading" alt="{{ product.images[1].alt }}">
+      </a>
+    </div>
+    <ul class="product-thumb-list" *ngIf="thumbnail">
+      <li class="grid_thumb_img" [class.active]="ImageSrc == image.src" *ngFor="let image of product.images">
+        <a href="javascript:void(0)" (mouseover)="ChangeVariantsImage(image.src)">
+          <img [lazyLoad]="image.src">
+        </a>
+      </li>
+    </ul>
+    <div class="cart-info cart-wrap">
+      <a href="javascript:void(0)" title="Add to cart" (click)="CartModal.openModal(product)"
+        *ngIf="cartModal">
+        <i class="ti-shopping-cart"></i>
+      </a>
+      <a href="javascript:void(0)" title="Add to cart" (click)="addToCart(product)"
+        *ngIf="!cartModal">
+        <i class="ti-shopping-cart"></i>
+      </a>
+      <a href="javascript:void(0)" title="Add to Wishlist" (click)="addToWishlist(product)">
+        <i class="ti-heart" aria-hidden="true"></i>
+      </a>
+      <a href="javascript:void(0)" title="Quick View" (click)="QuickView.openModal()">
+        <i class="ti-search" aria-hidden="true"></i>
+      </a>
+      <!-- <a href="javascript:void(0)" title="Compare" (click)="addToCompare(product)">
+        <i class="ti-reload" aria-hidden="true"></i>
+      </a> -->
+    </div>
+  </div>
+  <div class="product-detail">
+    <div>
+      <bar-rating [rate]="product?.rating" [readOnly]="true"></bar-rating>
+      <a [routerLink]="['/shop/product/left/sidebar/', product.id]">
+        <h6>{{ product?.title | titlecase }}</h6>
+      </a>
+      <p>{{ product?.description }} </p>
+      <h4>
+        {{ product?.price| currency:'GBP'}}
+        <!-- <h6>{{product?.stock==0?"(Out of stock.)":''}}</h6> -->
+         <!-- * currency?.price | discount:product | currency:currency?.currency:'symbol' }} -->
+        <!-- <del *ngIf="product?.discount"><span class="money"> {{ product?.price * currency?.price | currency:currency?.currency:'symbol' }}</span></del> -->
+      </h4>
+      <h5 *ngIf="product?.stock<1" style="color:red">Out of stock</h5>
+      <!-- <ul class="color-variant" *ngIf="Color(product?.variants).length">
+        <li [class]="color" *ngFor="let color of Color(product?.variants)" [ngStyle]="{'background-color': color}"
+          (click)="ChangeVariants(color, product)">
+        </li>
+      </ul> -->
+      <!-- <ul class="color-variant" >
+        <li  *ngIf="product.variants[0].color!='multi-coloured' && product.variants[0].color!='wine'" [ngStyle]="{'background-color': product.variants[0].color}" >
+        </li>
+        <li  *ngIf="product.variants[0].color=='multi-coloured'" style="background-image: url(assets/color/colour-multi-coloured.webp);" >  </li>
+        <li  *ngIf="product.variants[0].color=='wine'" style="background-color: rgb(61, 0, 0);" >  </li>
+      </ul> -->
+    </div>
+  </div>
+</div>
+<app-skeleton-product-box *ngIf="loader"></app-skeleton-product-box>
+<app-quick-view #quickView [product]="product" [currency]="currency"></app-quick-view>
+<app-cart-modal #cartModal [product]="product" [currency]="currency" *ngIf="cartModal"></app-cart-modal>
+

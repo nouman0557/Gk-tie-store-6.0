@@ -1,0 +1,53 @@
+<app-breadcrumb [title]="'Register'" [breadcrumb]="'Register'"></app-breadcrumb>
+<!-- section start -->
+<section class="register-page section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>create account</h3>
+                <div class="theme-card">
+                    <form class="theme-form"  [formGroup]="registerForm" (ngSubmit)="registerUser()" >
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="email" [ngClass]="{ 'text text-danger':registerFormValidError && fRegisterForm.Fname.errors}" > First Name</label>
+                                <input type="text" formControlName="Fname" class="form-control" id="fname" placeholder="First Name" >
+                            </div>
+                            <div class="col-md-6">
+                                <label [ngClass]="{ 'text text-danger':registerFormValidError && fRegisterForm.Lname.errors}" for="review">Last Name</label>
+                                <input type="text" formControlName="Lname" class="form-control" id="lname" placeholder="Last Name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label *ngIf="!userAlreadyExist"  [ngClass]="{ 'text text-danger':registerFormValidError && fRegisterForm.Email.errors}" for="email">Email</label>
+                                <label *ngIf="userAlreadyExist" class="text text-danger" for="email">User Email Already Exist</label>
+                                <input (click)='changeEmailErrorValue()' type="text" formControlName="Email" class="form-control" id="email" placeholder="Enter Email" >
+                            </div>
+                            <div class="col-md-6">
+                                <label [ngClass]="{ 'text text-danger':registerFormValidError && fRegisterForm.Phone.errors}" for="review">Phone Number</label>
+                                <input (keypress)="numberOnly($event)" formControlName="Phone"  maxlength="13"  type="text" class="form-control"
+                                 id="Phone" placeholder="Enter Phone Number">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label [ngClass]="{ 'text text-danger':registerFormValidError && fRegisterForm.Password.errors}" for="email">Password</label>
+                                <input type="password" class="form-control" formControlName="Password" id="Password" placeholder="Enter Password" >
+                            </div>
+                            <div class="col-md-6">
+                                <label *ngIf="!fRegisterForm.confirmPassword.errors?.mustMatch" [ngClass]="{ 'text text-danger':registerFormValidError && fRegisterForm.confirmPassword.errors}"
+                                 for="review">Re-Enter Password</label>
+                                 <label *ngIf="registerFormValidError && fRegisterForm.confirmPassword.errors?.mustMatch"
+                                 [ngClass]="{ 'text text-danger':registerFormValidError && fRegisterForm.confirmPassword.errors?.mustMatch}" 
+                                for="password"> Password Must Match</label>
+                                <input type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword" placeholder="Re-Enter your password" >
+                            </div>
+                            <button class="btn btn-solid">create Account</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Section ends-->

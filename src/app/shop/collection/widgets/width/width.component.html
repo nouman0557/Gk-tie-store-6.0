@@ -1,0 +1,25 @@
+<div class="collection-collapse-block" [class.open]="collapse" >
+    <h3 class="collapse-block-title" (click)="collapse = !collapse">Width</h3>
+    <div class="collection-collapse-block-content">
+      <div class="color-selector">
+        <div class="collection-brand-filter">
+          <!-- <div class="custom-control custom-checkbox collection-filter-checkbox"
+            *ngFor="let width of filterbywidth">
+            <input type="checkbox" 
+              [value]="width"
+              [checked]="checked(width)"
+              [id]="width"
+              (change)="appliedFilter($event)" 
+              class="custom-control-input" />
+            <label class="custom-control-label" for="{{ width }}">{{ width }}</label>
+          </div> -->
+          <div class="custom-control custom-checkbox collection-filter-checkbox" >
+            <label class="" (click)='appliedFilter("Normal")'>Normal </label>
+           </div>
+          <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <label class="" (click)='appliedFilter("Skinny")'>Skinny </label>
+        </div>
+        </div>
+      </div>
+    </div>
+</div>

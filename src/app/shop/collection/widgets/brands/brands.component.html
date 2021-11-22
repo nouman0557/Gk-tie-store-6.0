@@ -1,0 +1,19 @@
+<div class="collection-collapse-block" [class.open]="collapse" >
+    <h3 class="collapse-block-title" (click)="collapse = !collapse">Style</h3>
+    <div class="collection-collapse-block-content">
+      <div class="collection-brand-filter">
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+            <label class="" (click)='appliedFilter("Business")'>Business </label>
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <label class="" (click)='appliedFilter("Classic")'>Classic </label>
+        </div>
+       <div class="custom-control custom-checkbox collection-filter-checkbox" >
+        <label class="" (click)='appliedFilter("Luxury")'>Luxury </label>
+       </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+      <label class="" (click)='appliedFilter("Wedding")'>Wedding </label>
+       </div>
+      </div>
+    </div>
+</div>

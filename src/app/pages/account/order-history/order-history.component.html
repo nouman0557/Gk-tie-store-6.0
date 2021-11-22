@@ -1,0 +1,62 @@
+<app-breadcrumb [title]="'Order History'" [breadcrumb]="'Order History'"></app-breadcrumb>
+<!-- section start -->
+<section class="wishlist-section section-b-space">
+    <div class="container">
+        <div class="col-sm-12 empty-cart-cls text-center" *ngIf="!orderHistory?.length">
+            <img src="assets/images/empty-search.jpg"  class="img-fluid mb-4">
+            <h3><strong>No Order History </strong></h3>
+            <h4>Make order to make me happy :)</h4>
+            </div>
+            <!-- src="assets/images/icon-empty-cart.png" -->
+        <div class="row" *ngIf="orderHistory?.length">
+            <div class="col-sm-12">
+                <table class="table cart-table table-responsive-xs">
+                    <thead>
+                    <tr class="table-head">
+                        <th scope="col">Product ID</th>
+                        <th scope="col">Unit Price</th>
+                        <th scope="col">Quntity</th>
+                        <th scope="col">Discount</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Order Note</th>
+                        <th scope="col">Shipping Details</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr   *ngFor="let order of orderHistory; let i = index">
+                            <td>
+                                <p>{{ order?.fld_Proudt_Id ||'N/A'}} </p>
+                                <!-- <p>PID-0147</p> -->
+                            </td>
+                            <td>
+                                <p>{{ order?.fld_UnitPrice ||'N/A'}} </p>
+                                <!-- <p>$120.00</p> -->
+                            </td>
+                            <td>
+                                <p>{{ order?.fld_Quntity ||'N/A'}} </p>
+                                <!-- <p>5</p> -->
+                            </td>
+                            <td >
+                                <p>{{ order?.fld_Discount ||'N/A'}} </p>
+                                <!-- <p>22</p> -->
+                            </td>
+                            <td>
+                                <p>{{ order?.fld_Total ||'N/A'}} </p>
+                               <!-- <p>$1204.00</p> -->
+                            </td>
+                            <td>
+                                <p>{{ order?.fld_OrderNote ||'N/A'}} </p>
+                                <!-- <p>This is Test From Nomi.</p> -->
+                             </td>
+                             <td>
+                                <p>{{ order?.fld_Shipping_Details ||'N/A'}} </p>
+                                <!-- <p>This is testing.</p> -->
+                             </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+<!--section end-->

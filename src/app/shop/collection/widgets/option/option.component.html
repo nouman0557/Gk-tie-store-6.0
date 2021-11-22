@@ -1,0 +1,19 @@
+<div class="collection-collapse-block" [class.open]="collapse" *ngIf="filterbyoption.length">
+    <h3 class="collapse-block-title" (click)="collapse = !collapse">Option</h3>
+    <div class="collection-collapse-block-content">
+      <div class="color-selector">
+        <div class="collection-brand-filter">
+          <div class="custom-control custom-checkbox collection-filter-checkbox"
+            *ngFor="let option of filterbyoption">
+            <input type="checkbox" 
+              [value]="option"
+              [checked]="checked(option)"
+              [id]="option"
+              (change)="appliedFilter($event)" 
+              class="custom-control-input" />
+            <label class="custom-control-label" for="{{ option }}">{{ option }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

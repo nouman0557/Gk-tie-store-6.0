@@ -1,0 +1,122 @@
+<app-breadcrumb [title]="'Ties'" [breadcrumb]="'Ties'"></app-breadcrumb>
+<!-- section start -->
+<section class="section-b-space">
+    <div class="collection-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="collection-filter" [class.openFilterbar]="mobileSidebar">
+                        <!-- <div class="collection-filter-block">
+                            <div class="collection-mobile-back" (click)="toggleMobileSidebar()">
+                                <span class="filter-back">
+                                    <i class="fa fa-angle-left" aria-hidden="true"></i> back
+                                </span>
+                            </div>
+                            <app-categories></app-categories>
+                        </div> -->
+                        <!-- silde-bar colleps block end here -->
+                        <!-- side-bar colleps block stat -->
+                        <div class="collection-filter-block">
+                            <!-- Products filter start -->
+                            <app-categorie (categoryFilter)="appliedCatFilter($event)"></app-categorie>
+                            <app-colors [products]="products" [colors]="colors" (colorsFilter)="appliedFilter($event)">
+                            </app-colors>
+                            <!-- Style -->
+                            <app-brands [products]="products" [brands]="brands" (brandsFilter)="appliedFilter($event)">
+                            </app-brands>
+                            <!-- Pattren -->
+                            <app-size [products]="products" [size]="size" (sizeFilter)="appliedFilter($event)">
+                            </app-size>
+                            <app-width [products]="products" [width]="width" (widthFilter)="appliedFilter($event)">
+                            </app-width>
+                            <app-material [products]="products" [material]="material" (materialFilter)="appliedFilter($event)">
+                            </app-material>
+                            <app-price [min]="minPrice" [max]="maxPrice" (priceFilter)="updatePriceFilter($event)">
+                            </app-price>
+                        </div>
+                    </div>
+                </div>
+                <div class="collection-content col">
+                    <div class="page-main-content">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="top-banner-wrapper">
+                                    <div class="top-banner-content small-section">
+                                        <h4>Selected Category :{{' '+selectedCategory}} </h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="filter-main-btn" (click)="toggleMobileSidebar()">
+                                            <span class="filter-btn btn btn-theme">
+                                                <i class="fa fa-filter" aria-hidden="true"></i> Filter
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <ul class="product-filter-tags">
+                                    <li *ngIf='tiesFilters.Color!=""' class="mr-1">
+                                        <a  href="javascript:void(0)" class="filter_tag">
+                                            {{tiesFilters.Color}} <i class="ti-close" (click)="removeTag('Color')"></i>
+                                        </a>
+                                    </li>
+                                    <li  *ngIf='tiesFilters.Style!=""' class="mr-1">
+                                        <a  href="javascript:void(0)" class="filter_tag">
+                                            {{tiesFilters.Style}} <i class="ti-close" (click)="removeTag('Style')"></i>
+                                        </a>
+                                    </li>
+                                    <li *ngIf='tiesFilters.Pattern!=""' class="mr-1">
+                                        <a  href="javascript:void(0)" class="filter_tag">
+                                            {{tiesFilters.Pattern}} <i class="ti-close" (click)="removeTag('Pattern')"></i>
+                                        </a>
+                                    </li>
+                                    <li *ngIf='tiesFilters.Width!=""' class="mr-1">
+                                        <a  href="javascript:void(0)" class="filter_tag">
+                                            {{tiesFilters.Width}} <i class="ti-close" (click)="removeTag('Width')"></i>
+                                        </a>
+                                    </li>
+                                    <li *ngIf='tiesFilters.Material!=""' class="mr-1">
+                                        <a  href="javascript:void(0)" class="filter_tag">
+                                            {{tiesFilters.Material}} <i class="ti-close" (click)="removeTag('Material')"></i>
+                                        </a>
+                                    </li>
+                                     <li  class="clear_filter" *ngIf="tiesFilters.Material !='' || tiesFilters.Color !='' ||tiesFilters.Style !=''
+                                    ||tiesFilters.Style !='' ||tiesFilters.Pattern !='' ||tiesFilters.Style !=''"   >
+                                        <a href="javascript:void(0)" class="clear_filter" (click)="removeAllTags()">
+                                            Clear all
+                                        </a>
+                                    </li>  
+                                </ul>
+                                <div class="collection-product-wrapper" id="products">
+                                    <app-grid [products]="products" [paginate]="paginate" [layoutView]="layoutView" 
+                                    [sortBy]="sortBy" (setGrid)="updateGridLayout($event)" (setLayout)="updateLayoutView($event)"
+                                     (sortedBy)="sortByFilter($event)">
+                                    </app-grid>
+                                    <div class="product-wrapper-grid" [ngClass]="layoutView">
+                                        <div class="row">
+                                            <div class="col-grid-box" [ngClass]="grid" *ngFor="let product of products">
+                                                <div class="product-box">
+                                                    <app-product-box-one [product]="product" [currency]="productService?.Currency" [thumbnail]="false" [cartModal]="true" [loader]="true">
+                                                    </app-product-box-one>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 text-center section-b-space mt-5 no-found" *ngIf="!products.length">
+                                                <img src="assets/images/empty-search.jpg" class="img-fluid mb-4">
+                                                <h3>Sorry! Couldn't find the product you were looking For!!! </h3>
+                                                <p>Please check if you have misspelt something or try searching with other words.</p>
+                                                <a (click)='removeAllTags()' class="btn btn-solid">continue shopping</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <app-pagination [products]="products" [paginate]="paginate" (setPage)="setPage($event)">
+                                    </app-pagination>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section End -->

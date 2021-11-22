@@ -1,0 +1,37 @@
+<div class="collection-collapse-block" [class.open]="collapse">
+    <h3 class="collapse-block-title" (click)="collapse = !collapse">Pattern</h3>
+    <div class="collection-collapse-block-content">
+      <div class="color-selector">
+        <div class="collection-brand-filter">
+          <!-- <div class="custom-control custom-checkbox collection-filter-checkbox"
+            *ngFor="let size of filterbysize">
+            <input type="checkbox" 
+              [value]="size"
+              [checked]="checked(size)"
+              [id]="size"
+              (change)="appliedFilter($event)" 
+              class="custom-control-input" />
+            <label class="custom-control-label" for="{{ size }}">{{ size }}</label>
+          </div> -->
+          <div class="custom-control custom-checkbox collection-filter-checkbox" >
+            <label class="" (click)='appliedFilter("Floral")'>Floral </label>
+        </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <label class="" (click)='appliedFilter("Other")'>Other </label>
+        </div>
+       <div class="custom-control custom-checkbox collection-filter-checkbox" >
+        <label class="" (click)='appliedFilter("Paisley")'>Paisley </label>
+       </div>
+        <div class="custom-control custom-checkbox collection-filter-checkbox" >
+         <label class="" (click)='appliedFilter("Plain")'>Plain </label>
+         </div>
+         <div class="custom-control custom-checkbox collection-filter-checkbox" >
+          <label class="" (click)='appliedFilter("PolkaDot")'>PolkaDot </label>
+          </div>
+          <div class="custom-control custom-checkbox collection-filter-checkbox" >
+            <label class="" (click)='appliedFilter("Striped")'>Striped </label>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
