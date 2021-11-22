@@ -14,7 +14,6 @@ import { TiesComponent } from './ties/ties.component';
 
 @NgModule({
   declarations: [
-    // Widgest Components
     SliderComponent,
     BlogComponent,
     LogoComponent,
