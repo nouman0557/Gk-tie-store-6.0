@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  instagram_token: 'INSTAGRAM_TOKEN',
-  stripe_token: 'pk_test_IkAmCKSQYtx2e3fEBiCRW6dY00vJSeFT9k',
-  paypal_token: 'PAYPAL_CLIENT_ID'
+  instagram_token: '',
+  stripe_token: '',
+  paypal_token: ''
 };
 
 /*
